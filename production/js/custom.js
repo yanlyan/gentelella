@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -6,13 +6,13 @@
 
 /** ******  left menu  *********************** **/
 $(function () {
-    $('#sidebar-menu li ul').slideUp();
+    // $('#sidebar-menu li ul').slideUp();
     $('#sidebar-menu li').removeClass('active');
 
     $('#sidebar-menu li').on('click touchstart', function() {
         var link = $('a', this).attr('href');
 
-        if(link) { 
+        if(link) {
             window.location.href = link;
         } else {
             if ($(this).is('.active')) {
@@ -21,7 +21,7 @@ $(function () {
             } else {
                 $('#sidebar-menu li').removeClass('active');
                 $('#sidebar-menu li ul').slideUp();
-                
+
                 $(this).addClass('active');
                 $('ul', this).slideDown();
             }
@@ -54,7 +54,7 @@ $(function () {
     $('#sidebar-menu a[href="' + url + '"]').parent('li').addClass('current-page');
     $('#sidebar-menu a').filter(function () {
         return this.href == url;
-    }).parent('li').addClass('current-page').parent('ul').slideDown().parent().addClass('active');
+    }).parent('li').addClass('current-page').parent('ul').removeAttr('style').parent().addClass('active');
 });
 
 /** ******  /left menu  *********************** **/
